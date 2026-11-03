@@ -1,4 +1,3 @@
-
 import { formatPrice } from '../../lib/format'
 import { Button } from '../Button/Button'
 import { Switch } from '../Switch/Switch'
@@ -41,7 +40,7 @@ export function ProductTable({
         return (
           <div
             key={product.id}
-            className={`grid min-h-16 grid-cols-[minmax(160px,1.7fr)_minmax(140px,1.1fr)_100px_minmax(170px,1fr)_72px] items-center gap-x-6 border-t border-(--line) px-6 max-[720px]:grid-cols-[minmax(0,1fr)_auto] max-[720px]:grid-areas-['name_actions','category_price','status_status'] max-[720px]:gap-y-3 max-[720px]:p-4 ${
+            className={`grid min-h-16 grid-cols-[minmax(160px,1.7fr)_minmax(140px,1.1fr)_100px_minmax(170px,1fr)_72px] items-center gap-x-6 border-t border-(--line) px-6 max-[720px]:grid-cols-[minmax(0,1fr)_auto] max-[720px]:[grid-template-areas:'name_actions'_'category_price'_'status_status'] max-[720px]:gap-y-3 max-[720px]:p-4 ${
               !product.isAvailable ? '[&_.product-name]:text-(--text-muted) [&_.cell--price]:text-(--text-muted) [&_.status-label]:text-(--text-muted) [&_.chip]:border-(--line) [&_.chip]:bg-(--card) [&_.chip]:text-(--text-muted)' : ''
             }`}
           >
@@ -106,9 +105,9 @@ export function ProductTableSkeleton({
       {Array.from({ length: rows }, (_, i) => (
         <div
           key={i}
-          className="grid min-h-16 grid-cols-[minmax(160px,1.7fr)_minmax(140px,1.1fr)_100px_minmax(170px,1fr)_72px] items-center gap-x-6 border-t border-(--line) px-6 max-[720px]:grid-cols-[minmax(0,1fr)_auto] max-[720px]:gap-y-3 max-[720px]:p-4"
+          className="grid min-h-16 grid-cols-[minmax(160px,1.7fr)_minmax(140px,1.1fr)_100px_minmax(170px,1fr)_72px] items-center gap-x-6 border-t border-(--line) px-6 max-[720px]:grid-cols-[minmax(0,1fr)_auto] max-[720px]:[grid-template-areas:'name_actions'_'category_price'_'status_status'] max-[720px]:gap-y-3 max-[720px]:p-4"
         >
-          <div className="cell--name min-w-0">
+          <div className="cell--name min-w-0 max-[720px]:[grid-area:name]">
             <span
               className={skeletonClass}
               style={{
@@ -125,21 +124,21 @@ export function ProductTableSkeleton({
             />
           </div>
 
-          <div className="cell--category">
+          <div className="cell--category max-[720px]:[grid-area:category]">
             <span
               className={`${skeletonClass} rounded-full`}
               style={{ width: 96, height: 24 }}
             />
           </div>
 
-          <div className="cell--price text-right">
+          <div className="cell--price text-right max-[720px]:[grid-area:price]">
             <span
               className={skeletonClass}
               style={{ width: 56, height: 16 }}
             />
           </div>
 
-          <div className="cell--status flex items-center gap-3 pl-6 max-[720px]:pl-0">
+          <div className="cell--status flex items-center gap-3 pl-6 max-[720px]:[grid-area:status] max-[720px]:pl-0">
             <span
               className={`${skeletonClass} rounded-full`}
               style={{ width: 40, height: 24 }}
@@ -150,7 +149,7 @@ export function ProductTableSkeleton({
             />
           </div>
 
-          <div className="cell--actions flex justify-end">
+          <div className="cell--actions flex justify-end max-[720px]:[grid-area:actions] max-[720px]:self-start">
             <span
               className={`${skeletonClass} rounded-full`}
               style={{ width: 72, height: 36 }}
