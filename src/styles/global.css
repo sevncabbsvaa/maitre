@@ -1,0 +1,85 @@
+/* colors, fonts and sizes from the style guide */
+:root {
+  --primary: #a37b3e;
+  --primary-hover: #8c6731;
+  --bg: #fbf9f5;
+  --card: #ffffff;
+  --text: #292011;
+  --text-muted: #78736b;
+  --line: #e6e6e6;
+  --success: #1f3a2c;
+  --success-bg: #eaf2ec;
+  --error: #9a3b1e;
+  --error-bg: #f6e6e0;
+  --chip-bg: #f0e8dc; 
+  --switch-off: #d9d3c9;
+
+  --radius-pill: 50px;
+  --radius-card: 16px;
+  --radius-modal: 20px;
+
+  --font-body: 'Hanken Grotesk', system-ui, sans-serif;
+  --font-label: 'Onest', 'Hanken Grotesk', system-ui, sans-serif;
+
+  --page-gutter: 70px;
+  --control-height: 48px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+button,
+input,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* smaller page margin on smaller screens */
+@media (max-width: 1100px) {
+  :root {
+    --page-gutter: 32px;
+  }
+}
+
+@media (max-width: 720px) {
+  :root {
+    --page-gutter: 16px;
+  }
+}
